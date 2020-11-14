@@ -24,8 +24,7 @@ public class StorageActor extends AbstractActor {
                 })
                 .match(GetTestResultMsg.class, req -> {
                     String id = req.getTestId();
-                    
-                    sender().tell(new TestResultMsg(id, testResultById.get(id)), ActorRef.noSender());
+                    sender().tell(testResultById.get(id), ActorRef.noSender());
                 })
                 .build();
     }
