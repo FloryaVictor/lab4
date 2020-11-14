@@ -1,2 +1,5 @@
-package lab4;public class TestResultMsg {
+package lab4;
+
+public class TestResultMsg {
+    
 }

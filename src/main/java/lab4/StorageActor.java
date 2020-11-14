@@ -8,6 +8,7 @@ import java.util.Map;
 public class StorageActor extends AbstractActor {
     private Map<String, String> testResultsById;
 
+
     @Override
     public Receive createReceive() {
 
