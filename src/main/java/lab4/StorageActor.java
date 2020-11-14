@@ -8,8 +8,7 @@ import lab4.Messages.*;
 
 public class StorageActor extends AbstractActor {
     private final HashMap<String, String> testResultById = new HashMap<>();
-
-
+    
     @Override
     public Receive createReceive() {
         return ReceiveBuilder.create()
