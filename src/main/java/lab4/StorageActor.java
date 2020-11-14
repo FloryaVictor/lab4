@@ -6,7 +6,7 @@ import java.util.Map;
 import lab4.Messages.*;
 
 public class StorageActor extends AbstractActor {
-    private Map<String, String> testResultsById;
+    private Map<String, String> testResultById;
 
 
     @Override
@@ -14,10 +14,10 @@ public class StorageActor extends AbstractActor {
 
         return ReceiveBuilder.create()
                 .match(TestResultMsg.class, result -> {
-
+                    testResultById.put(result.getTestId(), result.getTestResult());
                 })
                 .match(GetTestResultMsg.class, req -> {
-                    req.
+
                 })
                 .build();
     }
