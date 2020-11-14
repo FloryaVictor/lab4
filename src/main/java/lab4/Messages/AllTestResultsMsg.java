@@ -8,6 +8,14 @@ public class AllTestResultsMsg {
 
     public AllTestResultsMsg(String testId, ArrayList<String> results){
         this.testId = testId;
-        this.testResults = results;
+        this.testResults = new ArrayList<>(results);
+    }
+
+    public String getTestId(){
+        return testId;
+    }
+
+    public ArrayList<String> getTestResults(){
+        return testResults;
     }
 }
