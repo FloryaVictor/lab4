@@ -28,4 +28,4 @@ init.sh
 proceed.sh
 target/*
 hadoop-examples.iml
-
+akka-labs.iml
