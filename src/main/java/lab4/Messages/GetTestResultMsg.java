@@ -1,2 +1,8 @@
-package lab4.Messages;public class GetTestResultMsg {
+package lab4.Messages;
+
+public class GetTestResultMsg {
+    public String msg;
+    public GetTestResultMsg(){
+
+    }
 }
