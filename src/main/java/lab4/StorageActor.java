@@ -12,7 +12,7 @@ public class StorageActor extends AbstractActor {
     public Receive createReceive() {
 
         return ReceiveBuilder.create()
-                .match()
+                .match(String.class, )
                 .match()
                 .build();
     }
