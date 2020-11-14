@@ -7,7 +7,7 @@ public class GetTestResultMsg {
         this.testId = testId;
     }
 
-    public String value(){
+    public String getTestId(){
         return testId;
     }
 }
