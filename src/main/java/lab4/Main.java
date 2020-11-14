@@ -15,7 +15,7 @@ public class Main {
         a.add(1);
         a.add(2);
         a.add(3);
-        ArrayList<Integer> b = a;
+        ArrayList<Integer> b = new ArrayList<>(a);
         a.add(4);
         System.out.println(b.size());
     }
