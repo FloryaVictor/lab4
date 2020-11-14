@@ -1,8 +1,8 @@
 package lab4.Messages;
 
 public class TestResultMsg {
-    public final String testId;
-    public final String testResult;
+    private final String testId;
+    private final String testResult;
 
     public TestResultMsg(String testId, String testResult){
         this.testId = testId;

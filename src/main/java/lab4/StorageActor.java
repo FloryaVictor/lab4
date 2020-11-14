@@ -13,8 +13,12 @@ public class StorageActor extends AbstractActor {
     public Receive createReceive() {
 
         return ReceiveBuilder.create()
-                .match(TestResultMsg.class, result - >)
-                .match()
+                .match(TestResultMsg.class, result -> {
+
+                })
+                .match(GetTestResultMsg.class, req -> {
+                    req.
+                })
                 .build();
     }
 }

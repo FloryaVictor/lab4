@@ -1,7 +1,7 @@
 package lab4.Messages;
 
 public class GetTestResultMsg {
-    public final String testId;
+    private final String testId;
 
     public GetTestResultMsg(String testId){
         this.testId = testId;
