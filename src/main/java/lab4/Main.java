@@ -1,10 +1,7 @@
 package lab4;
 
 import akka.http.javadsl.marshallers.jackson.Jackson;
-import lab4.Actors.RouterActor;
-
 import akka.NotUsed;
-
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
@@ -14,27 +11,23 @@ import akka.http.javadsl.ServerBinding;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.server.Route;
-
-
-import akka.routing.RoundRobinPool;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import akka.util.Timeout;
-import lab4.Actors.StorageActor;
-import lab4.Actors.TestRunnerActor;
-import lab4.Messages.GetTestResultsMsg;
-import lab4.Messages.RunTestMsg;
-import scala.concurrent.Future;
+import static akka.http.javadsl.server.Directives.*;
+import static akka.pattern.Patterns.ask;
 
+import scala.concurrent.Future;
 
 import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
-import static akka.http.javadsl.server.Directives.*;
-import static akka.pattern.Patterns.ask;
+import lab4.Messages.GetTestResultsMsg;
+import lab4.Messages.RunTestMsg;
+import lab4.Actors.RouterActor;
+
 
 public class Main {
     private final static Timeout timeout = Timeout.create(Duration.ofSeconds(5));

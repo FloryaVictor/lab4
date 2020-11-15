@@ -2,21 +2,21 @@ package lab4.Actors;
 
 
 import akka.dispatch.OnComplete;
-import lab4.Messages.*;
-
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
-
 import akka.actor.Props;
 import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
 import akka.util.Timeout;
-import scala.concurrent.Future;
+import static akka.pattern.Patterns.ask;
 
+import scala.concurrent.Future;
 
 import java.time.Duration;
 
-import static akka.pattern.Patterns.ask;
+import lab4.Messages.*;
+
+
 
 
 
