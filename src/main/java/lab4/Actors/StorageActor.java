@@ -1,4 +1,4 @@
-package lab4;
+package lab4.Actors;
 
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
@@ -24,7 +24,8 @@ public class StorageActor extends AbstractActor {
                 })
                 .match(GetTestResultMsg.class, req -> {
                     String id = req.getTestId();
-                    SomeTestResultsMsg resp = new SomeTestResultsMsg(id, testResultsById.get(id));
+                    ArrayList<String> results = testResultsById.getOrDefault(id, null);
+                    SomeTestResultsMsg resp = new SomeTestResultsMsg(id, results);
                     sender().tell(resp, ActorRef.noSender());
                 })
                 .build();

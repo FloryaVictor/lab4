@@ -1,4 +1,4 @@
-package lab4;
+package lab4.Actors;
 
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
