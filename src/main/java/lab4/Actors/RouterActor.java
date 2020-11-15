@@ -10,6 +10,7 @@ import akka.actor.Props;
 import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
 import akka.util.Timeout;
+import scala.concurrent.Future;
 
 
 import java.time.Duration;
@@ -35,7 +36,7 @@ public class RouterActor extends AbstractActor {
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(RunTestMsg.class, test->{
-                    CompletableFuture<Object> f = ask(testRunnersPool, test, timeout);
+                    Future<Object> f = ask(testRunnersPool, test, timeout);
 
                 })
                 .match(GetTestResultsMsg.class, req -> {
