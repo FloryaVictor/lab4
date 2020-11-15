@@ -49,9 +49,10 @@ public class TestData {
         String id = data.getString("packageId");
         String code = data.getString("jsScript");
         String funcName = data.getString("functionName");
-        JSONArray tests = data.getJSONArray("tests");
-        
-
+        String[] tests = CDL.toString(data.getJSONArray("tests")).split(",");
+        for(String test : tests){
+            JSONObject test
+        }
         return parsedTests;
     }
 }
