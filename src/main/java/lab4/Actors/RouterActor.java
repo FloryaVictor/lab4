@@ -15,9 +15,6 @@ import akka.util.Timeout;
 import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
 
-
-import static akka.pattern.
-import static akka.pattern.
 import static akka.pattern.Patterns.ask;
 
 
@@ -37,7 +34,9 @@ public class RouterActor extends AbstractActor {
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(RunTestMsg.class, test->{
-                    CompletableFuture<Object> f = ask(testRunnersPool, test, timeout)
+                    CompletableFuture<Object> f = ask(testRunnersPool, test, timeout).onComplete(
+                            
+                    );
                 })
                 .match(GetTestResultsMsg.class, req -> {
 
