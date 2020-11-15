@@ -60,6 +60,7 @@ public class Main {
                         })),
                 post(()->
                         entity(Jackson.unmarshaller(String.class), json -> {
+                            System.out.println(1);
                             System.out.println(json.toString());
                             ArrayList<TestData> testData = TestData.fromJSON(json.toString());
                             for(TestData t : testData){
