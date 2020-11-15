@@ -16,7 +16,7 @@ public class TestRunnerActor extends AbstractActor {
                     ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
                     engine.eval(req.getTestCode());
                     Invocable invocable = (Invocable) engine;
-                    return invocable.invokeFunction(functionName, params).toString();
+                    return invocable.invokeFunction(req.getTestFunctionName(), req.getTestData()).toString();
                 }).build();
     }
 }
