@@ -21,12 +21,12 @@ import static akka.pattern.Patterns.ask;
 
 
 public class RouterActor extends AbstractActor {
-    private ActorRef testRunnersPool = getContext().actorOf(
+    private final ActorRef testRunnersPool = getContext().actorOf(
             new RoundRobinPool(5)
                     .props(Props.create(TestRunnerActor.class)));
-    private ActorRef storageActor = getContext().actorOf(Props.create(StorageActor.class));
+    private final ActorRef storageActor = getContext().actorOf(Props.create(StorageActor.class));
     private final Timeout timeout = Timeout.create(Duration.ofSeconds(5));
-    
+
     @Override
     public Receive createReceive() {
         return ReceiveBuilder.create()
