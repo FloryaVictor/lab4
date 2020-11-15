@@ -1,5 +1,6 @@
 package lab4.Actors;
 
+import akka.pattern.Patterns;
 import lab4.Messages.*;
 
 import akka.actor.AbstractActor;
@@ -14,7 +15,7 @@ import akka.util.Timeout;
 import java.time.Duration;
 import java.util.concurrent.Future;
 
-
+import akka.dispatch.*;
 
 public class RouterActor extends AbstractActor {
     private final ActorRef testRunnersPool = getContext().actorOf(
@@ -32,7 +33,7 @@ public class RouterActor extends AbstractActor {
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(RunTestMsg.class, test->{
-                    Future<TestResultMsg> res = PatternsCS.ask(testRunnersPool, test, 1000);
+                    Future<TestResultMsg> res = Patterns.ask(testRunnersPool, test, 1000);
 
                 })
                 .match(GetTestResultsMsg.class, req -> {
