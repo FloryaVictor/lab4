@@ -25,8 +25,7 @@ public class MainHttp {
         return route(
                     get(parameter("packageId", (id) -> {
                         return complete("1");
-                    })),
-                    post());
+                    })));
 
     }
 }
