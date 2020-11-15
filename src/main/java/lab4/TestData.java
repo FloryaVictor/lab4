@@ -1,6 +1,9 @@
 package lab4;
 
 import java.util.ArrayList;
+
+import akka.stream.impl.JsonObjectParser;
+import jdk.nashorn.internal.parser.JSONParser;
 import spray.json.JsonReader;
 
 public class TestData {
@@ -45,7 +48,7 @@ public class TestData {
 
     public static ArrayList<TestData> fromJSON(String json){
         ArrayList<TestData> parsedTests = new ArrayList<>();
-        Json
+        JSONParser
 
         return parsedTests;
     }
