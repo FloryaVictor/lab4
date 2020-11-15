@@ -11,6 +11,9 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 
 public class TestRunnerActor extends AbstractActor {
+
+    String
+
     @Override
     public Receive createReceive() {
         return ReceiveBuilder.create()
