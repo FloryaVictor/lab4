@@ -1,6 +1,7 @@
 package lab4.Actors;
 
 
+import akka.dispatch.OnComplete;
 import lab4.Messages.*;
 
 import akka.actor.AbstractActor;
@@ -37,7 +38,8 @@ public class RouterActor extends AbstractActor {
         return ReceiveBuilder.create()
                 .match(RunTestMsg.class, test->{
                     Future<Object> f = ask(testRunnersPool, test, timeout);
-                    f.onComplete();
+                    f.onComplete(new OnComplete<Object>() {
+                    });
                 })
                 .match(GetTestResultsMsg.class, req -> {
 
