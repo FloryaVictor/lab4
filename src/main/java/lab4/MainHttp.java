@@ -17,11 +17,13 @@ import static akka.http.javadsl.server.Directives.*;
 import static akka.pattern.Patterns.ask;
 
 public class MainHttp {
+    private final ActorSystem system;
     private final ActorRef routerActor;
     private final Timeout timeout = Timeout.create(Duration.ofSeconds(5));
 
     public MainHttp(ActorSystem system)
     {
+        this.system = system;
         this.routerActor = system.actorOf(Props.create(RouterActor.class));
     }
 
@@ -29,10 +31,13 @@ public class MainHttp {
         return route(
                 get(()->
                         parameter("packageId",(id)-> {
-                            Future<Object> f = ask(routerActor, new GetTestResultsMsg(id), timeout);
-                            return completeOKWithFutureString()
-                        }))
-
+                            Future<String> f = ask(routerActor, new GetTestResultsMsg(id), timeout)
+                                    .map(Object::toString, system.getDispatcher());
+                            return completeOKWithFutureString(f);
+                        })),
+                post(()->{
+                    
+                })
         );
 
     }
