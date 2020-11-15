@@ -36,7 +36,7 @@ public class RouterActor extends AbstractActor {
                         public void onComplete(Throwable t, Object result)
                         {
                             TestResultMsg msg = (TestResultMsg)result;
-                            storageActor.tell(msg, ActorRef.noSender());
+                            storageActor.tell(msg, self());
                         }
                     }, getContext().getDispatcher());
                 })
@@ -50,7 +50,7 @@ public class RouterActor extends AbstractActor {
                             for(String r : msg.getTestResults()){
                                 testResults.append(r).append("\n");
                             }
-                            getSender().tell(testResults.toString(), ActorRef.noSender());
+                            getSender().tell(testResults.toString(), self());
                         }
                     }, getContext().getDispatcher());
                 }).build();

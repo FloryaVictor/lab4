@@ -43,7 +43,7 @@ public class TestRunnerActor extends AbstractActor {
         return ReceiveBuilder.create()
                 .match(RunTestMsg.class, req -> {
                     TestData testData = req.getTestData();
-                    getSender().tell(new TestResultMsg(testData.getId(), runJS(testData)), ActorRef.noSender());
+                    getSender().tell(new TestResultMsg(testData.getId(), runJS(testData)), self());
                 }).build();
     }
 }
