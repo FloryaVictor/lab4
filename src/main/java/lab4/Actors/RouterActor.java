@@ -44,14 +44,17 @@ public class RouterActor extends AbstractActor {
                         }
                     }, getContext().getDispatcher());
                 })
-                //TODO: add expansion into string
                 .match(GetTestResultsMsg.class, req -> {
                     Future<Object> f = ask(storageActor, req, timeout);
                     f.onComplete(new OnComplete<Object>() {
                         public void onComplete(Throwable t, Object result)
                         {
                             SomeTestResultsMsg msg = (SomeTestResultsMsg)result;
-                            getSender().tell(msg, ActorRef.noSender());
+                            StringBuilder testResults = new StringBuilder();
+                            for(String r : msg.getTestResults()){
+                                testResults.append(r).append("\n");
+                            }
+                            getSender().tell(testResults.toString(), ActorRef.noSender());
                         }
                     }, getContext().getDispatcher());
                 }).build();
