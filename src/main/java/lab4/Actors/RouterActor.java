@@ -30,7 +30,6 @@ public class RouterActor extends AbstractActor {
     private final ActorRef storageActor = getContext().actorOf(
             Props.create(StorageActor.class)
     );
-
     private final Timeout timeout = Timeout.create(Duration.ofSeconds(5));
 
     @Override
