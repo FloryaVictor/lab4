@@ -39,7 +39,10 @@ public class RouterActor extends AbstractActor {
                 .match(RunTestMsg.class, test->{
                     Future<Object> f = ask(testRunnersPool, test, timeout);
                     f.onComplete(new OnComplete<Object>() {
-                        public void onComplete(Throwable t, )
+                        public void onComplete(Throwable t, Object result)
+                        {
+
+                        }
                     });
                 })
                 .match(GetTestResultsMsg.class, req -> {
