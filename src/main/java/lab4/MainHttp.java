@@ -37,7 +37,7 @@ public class MainHttp {
                         })),
                 post(()->{
                   extractRequest(req -> {
-                      
+                      req.entity()
                   })
                 })
         );
