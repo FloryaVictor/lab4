@@ -59,7 +59,7 @@ public class Main {
                             return completeOKWithFuture(f, Jackson.marshaller());
                         })),
                 post(()->
-                        entity(Jackson.unmarshaller(String.class), json -> {
+                        entity(Jackson.unmarshaller(TestData.class), json -> {
                             System.out.println(1);
                             System.out.println(json.toString());
                             ArrayList<TestData> testData = TestData.fromJSON(json.toString());
