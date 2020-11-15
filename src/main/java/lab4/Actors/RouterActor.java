@@ -42,6 +42,7 @@ public class RouterActor extends AbstractActor {
                 })
                 .match(GetTestResultsMsg.class, req -> {
                     Future<Object> f = ask(storageActor, req, timeout);
+                    ActorRef sender = getSender();
                     f.onComplete(new OnComplete<Object>() {
                         public void onComplete(Throwable t, Object result)
                         {
@@ -50,7 +51,7 @@ public class RouterActor extends AbstractActor {
                             for(String r : msg.getTestResults()){
                                 testResults.append(r).append("\n");
                             }
-                            getSender().tell(testResults.toString(), self());
+                            sender.tell(testResults.toString(), self());
                         }
                     }, getContext().getDispatcher());
                 }).build();
