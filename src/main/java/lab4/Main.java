@@ -1,5 +1,7 @@
 package lab4;
 
+import lab4.Actors.RouterActor;
+
 import akka.NotUsed;
 
 import akka.actor.ActorRef;
@@ -14,7 +16,6 @@ import akka.http.javadsl.server.Route;
 
 
 import akka.routing.RoundRobinPool;
-import akka.routing.RouterActor;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import akka.util.Timeout;
@@ -40,8 +41,6 @@ public class Main {
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
-        ActorRef testRunnersPool = system.actorOf(new RoundRobinPool(5).props(Props.create(TestRunnerActor.class)));
-        ActorRef storageActor = system.actorOf(Props.create(StorageActor.class));
         ActorRef routerActor = system.actorOf(Props.create(RouterActor.class));
 //        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
 //                createRoute(system, routerActor).flow(system, materializer);
