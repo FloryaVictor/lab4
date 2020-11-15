@@ -19,7 +19,23 @@ public class TestRunnerActor extends AbstractActor {
         ScriptEngine engine = new ScriptEngineManager().getEngineByName(JS_COMPILER);
         engine.eval(testData.getCode());
         Invocable invocable = (Invocable) engine;
-        String invocable.invokeFunction(testData.getFuncName(), testData.getParams()).toString();
+        String answ = invocable.invokeFunction(testData.getFuncName(), testData.getParams()).toString();
+        if (!answ.equals(testData.getExpectedResult()))
+        {
+            return "Test " +
+                    testData.getTestName() +
+                    " from package with id " +
+                    testData.getId() +
+                    " has failed: expected result is " +
+                    testData.getExpectedResult() +
+                    " but actual is " +
+                    answ;
+        }
+        return "Test " +
+                testData.getTestName() +
+                " from package with id " +
+                testData.getId() +
+                " has succeeded";
     }
 
     @Override
