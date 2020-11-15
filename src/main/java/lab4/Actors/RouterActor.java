@@ -1,13 +1,11 @@
 package lab4.Actors;
 
 import akka.actor.AbstractActor;
-import akka.actor.Actor;
 import akka.actor.ActorRef;
 
 import akka.actor.Props;
 import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
-import lab4.Actors.*;
 import lab4.Messages.*;
 
 public class RouterActor extends AbstractActor {
@@ -26,6 +24,6 @@ public class RouterActor extends AbstractActor {
                 .match(RunTestMsg.class, test->{
 
                 })
-                .match(GetTestResultMsg).build();
+//                .match(GetTestResultsMsg).build();
     }
 }

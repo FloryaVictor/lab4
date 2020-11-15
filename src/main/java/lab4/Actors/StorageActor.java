@@ -22,7 +22,7 @@ public class StorageActor extends AbstractActor {
                     }
                     testResultsById.get(result.getTestId()).add(result.getTestResult());
                 })
-                .match(GetTestResultMsg.class, req -> {
+                .match(GetTestResultsMsg.class, req -> {
                     String id = req.getTestId();
                     ArrayList<String> results = testResultsById.getOrDefault(id, new ArrayList<>());
                     SomeTestResultsMsg resp = new SomeTestResultsMsg(id, results);
