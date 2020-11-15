@@ -3,7 +3,8 @@ package lab4;
 import akka.actor.AbstractActor;
 import akka.actor.ActorSystem;
 import akka.japi.pf.ReceiveBuilder;
-import scala.Int;
+import akka.pattern.*;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
