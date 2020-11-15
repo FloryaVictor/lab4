@@ -1,5 +1,6 @@
 package lab4;
 
+import akka.http.javadsl.marshallers.jackson.Jackson;
 import lab4.Actors.RouterActor;
 
 import akka.NotUsed;
@@ -62,10 +63,7 @@ public class Main {
                 get(()->
                         parameter("packageId",(id)-> {
                             Future<Object> f = ask(routerActor, new GetTestResultsMsg(id), timeout);
-                            String s = (String)f.value().get().get();
-//                            return complete(s);
-//                            CompletableFuture<String>
-                            return completeOKWithFuture(f, );
+                            return completeOKWithFuture(f, Jackson.marshaller());
                         })),
                 post(()->
                         extractDataBytes(data -> {
