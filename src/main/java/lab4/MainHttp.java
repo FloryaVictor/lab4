@@ -23,8 +23,8 @@ public class MainHttp {
 
     public Route createRoute(ActorSystem system) {
         return route(
-                get(),
-                post());
+                    get(parameter("packageId")),
+                    post());
 
     }
 }
