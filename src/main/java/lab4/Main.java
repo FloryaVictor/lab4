@@ -61,7 +61,8 @@ public class Main {
                 get(()->
                         parameter("packageId",(id)-> {
                             Future<Object> f = ask(routerActor, new GetTestResultsMsg(id), timeout);
-                            return complete((String)f.value().get().get());
+                            String s = (String)f.value().get().get();
+                            return complete(s);
 //                            return completeOKWithFutureString(f);
                         })),
                 post(()->
