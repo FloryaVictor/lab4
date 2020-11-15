@@ -15,10 +15,9 @@ import scala.concurrent.Future;
 
 
 import java.time.Duration;
-import java.util.concurrent.CompletableFuture;
 
 import static akka.pattern.Patterns.ask;
-import static akka.pattern.Patterns.pipe;
+
 
 
 public class RouterActor extends AbstractActor {
@@ -45,13 +44,14 @@ public class RouterActor extends AbstractActor {
                         }
                     }, getContext().getDispatcher());
                 })
+                //TODO: add 
                 .match(GetTestResultsMsg.class, req -> {
                     Future<Object> f = ask(storageActor, req, timeout);
                     f.onComplete(new OnComplete<Object>() {
                         public void onComplete(Throwable t, Object result)
                         {
                             SomeTestResultsMsg msg = (SomeTestResultsMsg)result;
-                            sender().tell(msg, ActorRef.noSender());
+                            getSender().tell(msg, ActorRef.noSender());
                         }
                     }, getContext().getDispatcher());
                 }).build();
