@@ -52,6 +52,8 @@ public class TestData {
         String[] tests = CDL.toString(data.getJSONArray("tests")).split(",");
         for(String test : tests){
             JSONObject testData = new JSONObject(test);
+            parsedTests.add(new TestData(id, code, funcName,
+                                        testData.getString("te")))
         }
         return parsedTests;
     }
