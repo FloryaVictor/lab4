@@ -7,6 +7,7 @@ import akka.http.javadsl.server.Route;
 import akka.routing.RouterActor;
 import akka.util.Timeout;
 import lab4.Messages.GetTestResultsMsg;
+import lab4.Messages.RunTestMsg;
 import scala.concurrent.Future;
 
 
@@ -36,12 +37,15 @@ public class MainHttp {
                                     .map(Object::toString, system.getDispatcher());
                             return completeOKWithFutureString(f);
                         })),
-                post(()->{
-                  extractDataBytes(data -> {
-                      ArrayList<TestData> testData = TestData.fromJSON(data.toString());
-                      
-                  })
-                })
+                post(()->
+                        extractDataBytes(data -> {
+                            ArrayList<TestData> testData = TestData.fromJSON(data.toString());
+                            for(TestData t : testData){
+                                routerActor.tell(new RunTestMsg(t), ActorRef.noSender());
+                            }
+                            return complete("Tests are accepted for consideration");
+                        })
+                )
         );
 
     }
