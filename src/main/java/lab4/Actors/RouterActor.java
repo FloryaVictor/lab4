@@ -8,6 +8,8 @@ import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
 import lab4.Messages.*;
 
+import java.util.concurrent.Future;
+
 public class RouterActor extends AbstractActor {
     private final ActorRef testRunnersPool = getContext().actorOf(
             new RoundRobinPool(5)
@@ -22,8 +24,14 @@ public class RouterActor extends AbstractActor {
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(RunTestMsg.class, test->{
+                    Future<TestResultMsg> res = testRunnersPool.tell(test, self());
+                    
+                })
+                .match(GetTestResultsMsg.class, req -> {
+
+                })
+                .match(SomeTestResultsMsg.class, resp -> {
 
                 }).build();
-//                .match(GetTestResultsMsg).build();
     }
 }
