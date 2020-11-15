@@ -9,5 +9,8 @@ import akka.http.javadsl.server.Route;
 import java.util.concurrent.CompletionStage;
 
 public class MainHttp {
-    public 
+    public Route createRoute(ActorSystem system)
+    {
+        
+    }
 }
