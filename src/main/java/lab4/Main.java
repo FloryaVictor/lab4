@@ -40,7 +40,7 @@ public class Main {
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
-        ActorRef testRunnersPool = system.actorOf(new RoundRobinPool(5).props(Props.create(TestRunnerActor.class)));
+//        ActorRef testRunnersPool = system.actorOf(new RoundRobinPool(5).props(Props.create(TestRunnerActor.class)));
         ActorRef storageActor = system.actorOf(Props.create(StorageActor.class));
         ActorRef routerActor = system.actorOf(Props.create(RouterActor.class));
 //        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
