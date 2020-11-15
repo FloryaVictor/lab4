@@ -1,8 +1,10 @@
 package lab4;
 
 import akka.actor.AbstractActor;
+import akka.actor.ActorRef;
 import akka.japi.pf.ReceiveBuilder;
 import lab4.Messages.RunTestMsg;
+import lab4.Messages.TestResultMsg;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
@@ -16,7 +18,8 @@ public class TestRunnerActor extends AbstractActor {
                     ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
                     engine.eval(req.getTestCode());
                     Invocable invocable = (Invocable) engine;
-                    return invocable.invokeFunction(req.getTestFunctionName(), req.getTestData()).toString();
+                    String res = invocable.invokeFunction(req.getTestFunctionName(), req.getTestData()).toString();
+                    sender().tell(new TestResultMsg(req.getTestId(), res), ActorRef.noSender());
                 }).build();
     }
 }
