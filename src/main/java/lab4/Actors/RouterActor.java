@@ -30,14 +30,14 @@ public class RouterActor extends AbstractActor {
             Props.create(StorageActor.class)
     );
 
-    private final Timeout timeout = Timeout.create(Duration.ofSeconds(1));
+    private final Timeout timeout = Timeout.create(Duration.ofSeconds(5));
 
     @Override
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(RunTestMsg.class, test->{
                     Future<Object> f = ask(testRunnersPool, test, timeout);
-                    pipe(f, getContext().dispatcher()).to(getSender());
+                    f.onSuccess(());
                 })
                 .match(GetTestResultsMsg.class, req -> {
 
