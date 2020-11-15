@@ -24,13 +24,7 @@ public class StorageActor extends AbstractActor {
                 })
                 .match(GetTestResultsMsg.class, req -> {
                     String id = req.getTestId();
-                    //
-                    ArrayList<String> a= new ArrayList<>();
-                    a.add("lol");
-                    a.add("lol");
-                    //
-                    ArrayList<String> results = testResultsById.getOrDefault(id, a);
-                    //
+                    ArrayList<String> results = testResultsById.getOrDefault(id, new ArrayList<>());
                     SomeTestResultsMsg resp = new SomeTestResultsMsg(id, results);
                     getSender().tell(resp, self());
                 })

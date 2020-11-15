@@ -47,10 +47,6 @@ public class RouterActor extends AbstractActor {
                         public void onComplete(Throwable t, Object result)
                         {
                             SomeTestResultsMsg msg = (SomeTestResultsMsg)result;
-//                            StringBuilder testResults = new StringBuilder();
-//                            for(String r : msg.getTestResults()){
-//                                testResults.append(r).append("\n");
-//                            }
                             sender.tell(msg.getTestResults(), self());
                         }
                     }, getContext().getDispatcher());
