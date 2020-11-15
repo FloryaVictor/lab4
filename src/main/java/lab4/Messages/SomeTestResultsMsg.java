@@ -16,6 +16,7 @@ public class SomeTestResultsMsg {
     }
 
     public ArrayList<String> getTestResults(){
+        ArrayList<String> copy = (ArrayList<String>) testResults.clone();
         return testResults;
     }
 }
