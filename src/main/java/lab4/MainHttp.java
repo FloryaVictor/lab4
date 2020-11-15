@@ -10,7 +10,7 @@ import akka.http.javadsl.server.Route;
 import akka.routing.RouterActor;
 
 import static akka.http.javadsl.server.Directives.*;
-import java.util.concurrent.CompletionStage;
+
 
 public class MainHttp {
     private final ActorSystem system;
@@ -22,13 +22,11 @@ public class MainHttp {
     }
 
     public Route createRoute(ActorSystem system) {
-        return concat(
-                get(
-                        parameter("packageId", (id) ->{
-                            return 1;
-                        }
-                )),
-                post()
+        return get(
+                    parameter("packageId", (id) ->{
+                        return complete("");
+                    })
         );
+
     }
 }
