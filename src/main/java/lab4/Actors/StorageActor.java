@@ -26,7 +26,7 @@ public class StorageActor extends AbstractActor {
                     String id = req.getTestId();
                     ArrayList<String> results = testResultsById.getOrDefault(id, new ArrayList<>());
                     SomeTestResultsMsg resp = new SomeTestResultsMsg(id, results);
-                    sender().tell(resp, ActorRef.noSender());
+                    getSender().tell(resp, ActorRef.noSender());
                 })
                 .build();
     }
