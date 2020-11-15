@@ -47,7 +47,7 @@ public class TestData {
         ArrayList<TestData> parsedTests = new ArrayList<>();
         JSONObject data = new JSONObject(json);
         String id = data.getString("packageId");
-        String code = data.getString()
+        String code = data.getString("js")
         return parsedTests;
     }
 }
