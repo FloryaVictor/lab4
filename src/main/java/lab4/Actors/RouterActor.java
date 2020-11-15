@@ -13,6 +13,7 @@ import akka.util.Timeout;
 import scala.concurrent.Future;
 
 import java.time.Duration;
+import java.util.concurrent.CompletionStage;
 
 
 public class RouterActor extends AbstractActor {
@@ -31,7 +32,7 @@ public class RouterActor extends AbstractActor {
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(RunTestMsg.class, test->{
-                    
+                    CompletionStage
                 })
                 .match(GetTestResultsMsg.class, req -> {
 
