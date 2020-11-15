@@ -37,6 +37,7 @@ public class Main {
 //        binding
 //                .thenCompose(ServerBinding::unbind)
 //                .thenAccept(unbound -> system.terminate());
-        System.in.read();
+        byte b[14] = new Byte[];
+        System.in.read(b);
     }
 }
