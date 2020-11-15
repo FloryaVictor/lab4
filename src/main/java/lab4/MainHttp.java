@@ -37,6 +37,7 @@ public class MainHttp {
                         parameter("packageId",(id)-> {
                             Future<Object> f = ask(routerActor, new GetTestResultsMsg(id), timeout);
                             
+                            return completeOKWithFuture(f);
                         }))
 
         );
