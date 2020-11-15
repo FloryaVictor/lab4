@@ -31,7 +31,7 @@ import static akka.http.javadsl.server.Directives.*;
 import static akka.pattern.Patterns.ask;
 
 public class Main {
-     final Timeout timeout = Timeout.create(Duration.ofSeconds(5));
+    private final static Timeout timeout = Timeout.create(Duration.ofSeconds(5));
 
     public static void main(String[] args) throws IOException {
         ActorSystem system = ActorSystem.create("routes");
