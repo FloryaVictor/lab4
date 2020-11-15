@@ -17,6 +17,7 @@ import akka.routing.RouterActor;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import akka.util.Timeout;
+import lab4.Actors.TestRunnerActor;
 import lab4.Messages.GetTestResultsMsg;
 import lab4.Messages.RunTestMsg;
 import scala.concurrent.Future;
@@ -37,7 +38,7 @@ public class Main {
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
-        ActorRef routerActor = system.actorOf(Props.create(RouterActor.class));
+        ActorRef routerActor = system.actorOf(Props.create(TestRunnerActor.class));
 //        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
 //                createRoute(system, routerActor).flow(system, materializer);
 //        final CompletionStage<ServerBinding> binding = http.bindAndHandle(
