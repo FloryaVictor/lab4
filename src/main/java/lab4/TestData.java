@@ -1,7 +1,7 @@
 package lab4;
 
 import java.util.ArrayList;
-import org.json.*;
+import spray.json.JsonReader;
 
 public class TestData {
     private final String id;
@@ -45,7 +45,7 @@ public class TestData {
 
     public static ArrayList<TestData> fromJSON(String json){
         ArrayList<TestData> parsedTests = new ArrayList<>();
-
+        JsonReader 
 
         return parsedTests;
     }
