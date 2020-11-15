@@ -45,6 +45,14 @@ public class Main {
                 "\"jsScript\":\"var divideFn = function(a,b) { return a/b} \",\n" +
                 "\"functionName\":\"divideFn\",\n" +
                 "\"tests\": [\n" +
+                "{\"testName\":\"test1\",\n" +
+                "\"expectedResult\":\"2.0\",\n" +
+                "\"params\":[2,1]\n" +
+                "},\n" +
+                "{\"testName\":\"test2\",\n" +
+                "\"expectedResult\":\"2.0\",\n" +
+                "\"params\":[4,2]\n" +
+                "}\n" +
                 "]\n" +
                 "}";
         ArrayList<TestData> l = TestData.fromJSON(s);
