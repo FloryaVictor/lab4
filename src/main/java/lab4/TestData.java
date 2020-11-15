@@ -8,14 +8,14 @@ public class TestData {
     private final String code;
     private final String funcName;
     private final String testName;
-    private final String expectedValue;
+    private final String expectedResult;
     private final String params;
-    public TestData(String id, String code, String funcName, String testName, String expectedValue, String params){
+    public TestData(String id, String code, String funcName, String testName, String expectedResult, String params){
         this.id = id;
         this.code = code;
         this.funcName = funcName;
         this.testName = testName;
-        this.expectedValue = expectedValue;
+        this.expectedResult = expectedResult;
         this.params = params;
     }
 
@@ -35,8 +35,8 @@ public class TestData {
         return testName;
     }
 
-    public String getExpectedValue() {
-        return expectedValue;
+    public String getExpectedResult() {
+        return expectedResult;
     }
 
     public String getParams() {
@@ -58,7 +58,7 @@ public class TestData {
             JSONObject testData = tests.getJSONObject(i);
             parsedTests.add(new TestData(id, code, funcName,
                                         testData.getString("testName"),
-                                        testData.getString("expectedValue"),
+                                        testData.getString("expectedResult"),
                                         testData.getString("params")));
         }
         return parsedTests;
