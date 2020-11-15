@@ -22,7 +22,7 @@ public class RouterActor extends AbstractActor {
             Props.create(StorageActor.class)
     );
 
-    private final Timeout
+    private final Timeout timeout = 
 
     @Override
     public Receive createReceive() {
