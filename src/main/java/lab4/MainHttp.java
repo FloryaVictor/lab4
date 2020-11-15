@@ -36,9 +36,8 @@ public class MainHttp {
                             return completeOKWithFutureString(f);
                         })),
                 post(()->{
-                  extractRequest(req -> {
-                      TestData
-                      req.entity().toString();
+                  extractRequestEntity(req -> {
+                      HttpRequestEntity
                   })
                 })
         );
