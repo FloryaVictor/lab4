@@ -37,7 +37,7 @@ public class RouterActor extends AbstractActor {
         return ReceiveBuilder.create()
                 .match(RunTestMsg.class, test->{
                     Future<Object> f = ask(testRunnersPool, test, timeout);
-                    f.onSuccess(());
+                    f.onSuccess((n));
                 })
                 .match(GetTestResultsMsg.class, req -> {
 
