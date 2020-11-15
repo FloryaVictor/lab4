@@ -22,4 +22,4 @@ public class TestRunnerActor extends AbstractActor {
                     sender().tell(new TestResultMsg(req.getTestId(), res), ActorRef.noSender());
                 }).build();
     }
-}
+}       
