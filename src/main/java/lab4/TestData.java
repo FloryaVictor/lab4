@@ -49,14 +49,19 @@ public class TestData {
         String id = data.getString("packageId");
         String code = data.getString("jsScript");
         String funcName = data.getString("functionName");
-        String[] tests = CDL.toString(data.getJSONArray("tests")).split(",");
-        for(String test : tests){
-            JSONObject testData = new JSONObject(test);
-            parsedTests.add(new TestData(id, code, funcName,
-                                        testData.getString("testName"),
-                                        testData.getString("expectedValue"),
-                                        testData.getString("params")));
-        }
+
+
+        System.out.println(data.getJSONArray("tests").get(0));
+
+
+//        String[] tests = CDL.toString(data.getJSONArray("tests")).split(",");
+//        for(String test : tests){
+//            JSONObject testData = new JSONObject(test);
+//            parsedTests.add(new TestData(id, code, funcName,
+//                                        testData.getString("testName"),
+//                                        testData.getString("expectedValue"),
+//                                        testData.getString("params")));
+//        }
         return parsedTests;
     }
 }
