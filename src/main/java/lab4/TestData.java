@@ -48,7 +48,8 @@ public class TestData {
         JSONObject data = new JSONObject(json);
         String id = data.getString("packageId");
         String code = data.getString("jsScript");
-        String funcName = data.getString()
+        String funcName = data.getString("functionName");
+        For()
         return parsedTests;
     }
 }
