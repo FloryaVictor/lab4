@@ -1,2 +1,6 @@
-package lab4.Messages;public class RunTestMsg {
+package lab4.Messages;
+
+public class RunTestMsg {
+    private final String testId;
+    private final String 
 }
