@@ -1,22 +1,20 @@
 package lab4;
 
 import akka.NotUsed;
-import akka.actor.AbstractActor;
+
 import akka.actor.ActorSystem;
 import akka.http.javadsl.ConnectHttp;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.ServerBinding;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
-import akka.japi.pf.ReceiveBuilder;
-import akka.pattern.*;
+import akka.http.javadsl.server.Route;
+
+
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.concurrent.CompletionStage;
 
@@ -39,5 +37,7 @@ public class Main {
         binding
                 .thenCompose(ServerBinding::unbind)
                 .thenAccept(unbound -> system.terminate());
+
+
     }
 }
