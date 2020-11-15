@@ -63,9 +63,9 @@ public class Main {
                         parameter("packageId",(id)-> {
                             Future<Object> f = ask(routerActor, new GetTestResultsMsg(id), timeout);
                             String s = (String)f.value().get().get();
-                            return complete(s);
-                            CompletableFuture<String>
-//                            return completeOKWithFutureString(f);
+//                            return complete(s);
+//                            CompletableFuture<String>
+                            return completeOKWithFuture(f, );
                         })),
                 post(()->
                         extractDataBytes(data -> {
