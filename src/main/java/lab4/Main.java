@@ -56,9 +56,9 @@ public class Main {
                 "]\n" +
                 "}";
         ArrayList<TestData> l = TestData.fromJSON(s);
-        System.out.println(l.get(0).getTestName());
-        System.out.println(l.get(0).getExpectedResult());
-        System.out.println(l.get(0).getParams());
+        System.out.println(l.get(1).getTestName());
+        System.out.println(l.get(1).getExpectedResult());
+        System.out.println(l.get(1).getParams());
         
     }
 }
