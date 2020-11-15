@@ -53,7 +53,8 @@ public class TestData {
         for(String test : tests){
             JSONObject testData = new JSONObject(test);
             parsedTests.add(new TestData(id, code, funcName,
-                                        testData.getString("te")))
+                                        testData.getString("testName"),
+                                        testData.getString("")));
         }
         return parsedTests;
     }
