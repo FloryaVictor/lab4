@@ -21,8 +21,8 @@ import static akka.pattern.Patterns.ask;
 
 
 public class RouterActor extends AbstractActor {
-    private ActorRef testRunnersPool;
-    private ActorRef storageActor;
+    private ActorRef testRunnersPool = null;
+    private ActorRef storageActor = null;
     private final Timeout timeout = Timeout.create(Duration.ofSeconds(5));
 
     public void setTestRunnersPool(ActorRef testRunnersPool){
