@@ -33,7 +33,7 @@ public class RouterActor extends AbstractActor {
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(RunTestMsg.class, test->{
-                    CompletableFuture<>
+                    CompletableFuture<Object> 
                 })
                 .match(GetTestResultsMsg.class, req -> {
 
