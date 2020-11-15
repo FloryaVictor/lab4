@@ -57,24 +57,23 @@ public class Main {
     }
 
     public static Route createRoute(ActorSystem system, ActorRef routerActor) {
-        return concat(
-                get(()->
+        return get(()->
                         parameter("packageId",(id)-> {
                             Future<Object> f = ask(routerActor, new GetTestResultsMsg(id), timeout);
                             String s = (String)f.value().get().get();
                             return complete(s);
 //                            return completeOKWithFutureString(f);
-                        })),
-                post(()->
-                        extractDataBytes(data -> {
-                            ArrayList<TestData> testData = TestData.fromJSON(data.toString());
-                            for(TestData t : testData){
-                                routerActor.tell(new RunTestMsg(t), ActorRef.noSender());
-                            }
-                            return complete("Tests are accepted for consideration");
-                        })
-                )
-        );
+                        }));
+//                post(()->
+//                        extractDataBytes(data -> {
+//                            ArrayList<TestData> testData = TestData.fromJSON(data.toString());
+//                            for(TestData t : testData){
+//                                routerActor.tell(new RunTestMsg(t), ActorRef.noSender());
+//                            }
+//                            return complete("Tests are accepted for consideration");
+//                        })
+//                )
+//        );
 
     }
 }
