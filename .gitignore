@@ -26,4 +26,5 @@ hs_err_pid*
 pom.xml
 target/*
 akka-labs.iml
+test.json
 
