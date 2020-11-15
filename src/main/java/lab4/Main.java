@@ -17,6 +17,7 @@ import akka.stream.javadsl.Flow;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.concurrent.CompletionStage;
 
 public class Main {
@@ -37,7 +38,9 @@ public class Main {
 //        binding
 //                .thenCompose(ServerBinding::unbind)
 //                .thenAccept(unbound -> system.terminate());
-        byte b[14] = new Byte[];
-        System.in.read(b);
+
+        Scanner scan = new Scanner(System.in);
+        scan.next();
+        System.out.println(1);
     }
 }
