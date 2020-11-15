@@ -51,7 +51,7 @@ public class TestData {
         String funcName = data.getString("functionName");
 
 
-        System.out.println(data.getJSONObject("test"));
+        System.out.println(data.getJSONObject("tests"));
 
 
 //        String[] tests = CDL.toString(data.getJSONArray("tests")).split(",");
