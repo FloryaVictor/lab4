@@ -35,7 +35,7 @@ import static akka.http.javadsl.server.Directives.*;
 import static akka.pattern.Patterns.ask;
 
 public class Main {
-    private final static Timeout timeout = Timeout.create(Duration.ofSeconds(10));
+    private final static Timeout timeout = Timeout.create(Duration.ofSeconds(5));
 
     public static void main(String[] args) throws IOException {
         ActorSystem system = ActorSystem.create("routes");
@@ -60,10 +60,9 @@ public class Main {
         return concat(
                 get(()->
                         parameter("packageId",(id)-> {
-                            Future<String> f = ask(routerActor, new GetTestResultsMsg(id), timeout)
-                                    .map(Object::toString, system.getDispatcher());
-//                            return complete("123");
-                            return completeOKWithFutureString(f);
+                            Future<Object> f = ask(routerActor, new GetTestResultsMsg(id), timeout);
+                            return complete((String)f.value().get().get());
+//                            return completeOKWithFutureString(f);
                         })),
                 post(()->
                         extractDataBytes(data -> {
