@@ -1,6 +1,6 @@
 package lab4.Actors;
 
-import akka.pattern.Patterns;
+
 import lab4.Messages.*;
 
 import akka.actor.AbstractActor;
@@ -10,14 +10,15 @@ import akka.actor.Props;
 import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
 import akka.util.Timeout;
-import scala.concurrent.Future;
+
 
 import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.CompletionStage;
+
 
 import static akka.pattern.
 import static akka.pattern.
+import static akka.pattern.Patterns.ask;
 
 
 public class RouterActor extends AbstractActor {
