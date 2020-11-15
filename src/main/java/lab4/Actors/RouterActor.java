@@ -5,6 +5,7 @@ import akka.actor.ActorRef;
 
 import akka.actor.Props;
 import akka.japi.pf.ReceiveBuilder;
+import akka.pattern.PatternsCS;
 import akka.routing.RoundRobinPool;
 import lab4.Messages.*;
 
@@ -24,7 +25,7 @@ public class RouterActor extends AbstractActor {
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(RunTestMsg.class, test->{
-                    Future<TestResultMsg> res = testRunnersPool(test, self());
+                    Future<TestResultMsg> res = PatternsCS.ask(testRunnersPool, test, );
 
                 })
                 .match(GetTestResultsMsg.class, req -> {
