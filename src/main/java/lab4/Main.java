@@ -56,9 +56,9 @@ public class Main {
                 "]\n" +
                 "}";
         ArrayList<TestData> l = TestData.fromJSON(s);
-        System.out.println(l.get(0).getId());
-        System.out.println(l.get(0).getCode());
-        System.out.println(l.get(0).getFuncName());
-        
+        System.out.println(l.get(1).getId());
+        System.out.println(l.get(1).getCode());
+        System.out.println(l.get(1).getFuncName());
+
     }
 }
