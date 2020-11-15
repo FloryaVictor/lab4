@@ -50,6 +50,7 @@ public class RouterActor extends AbstractActor {
                             for(String r : msg.getTestResults()){
                                 testResults.append(r).append("\n");
                             }
+                            System.out.println(getSender());
                             getSender().tell(testResults.toString(), self());
                         }
                     }, getContext().getDispatcher());
