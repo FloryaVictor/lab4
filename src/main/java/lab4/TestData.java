@@ -53,6 +53,7 @@ public class TestData {
     }
 
     public static ArrayList<TestData> fromJSON(String json){
+        System.out.println(json);
         ArrayList<TestData> parsedTests = new ArrayList<>();
         JSONObject data = new JSONObject(json);
         String id = data.getString("packageId");
