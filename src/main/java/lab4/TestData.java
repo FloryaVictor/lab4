@@ -54,7 +54,8 @@ public class TestData {
             JSONObject testData = new JSONObject(test);
             parsedTests.add(new TestData(id, code, funcName,
                                         testData.getString("testName"),
-                                        testData.getString("ex")));
+                                        testData.getString("expectedValue"),
+                                        testData.getString("")));
         }
         return parsedTests;
     }
