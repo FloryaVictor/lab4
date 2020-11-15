@@ -60,6 +60,7 @@ public class Main {
                         })),
                 post(()->
                         extractDataBytes(data -> {
+                            System.out.println(data.toString());
                             ArrayList<TestData> testData = TestData.fromJSON(data.toString());
                             for(TestData t : testData){
                                 routerActor.tell(new RunTestMsg(t), ActorRef.noSender());
