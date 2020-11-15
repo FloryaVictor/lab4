@@ -47,7 +47,14 @@ public class RouterActor extends AbstractActor {
                     }, getContext().getDispatcher());
                 })
                 .match(GetTestResultsMsg.class, req -> {
-
+                    Future<Object> f = ask(storageActor, req, timeout);
+                    f.onComplete(new OnComplete<Object>() {
+                        public void onComplete(Throwable t, Object result)
+                        {
+                            SomeTestResultsMsg msg = (SomeTestResultsMsg)result;
+                            sender().tell(msg, ActorRef.noSender());
+                        }
+                    }, getContext().getDispatcher());
                 })
                 .match(SomeTestResultsMsg.class, resp -> {
 
