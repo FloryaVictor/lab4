@@ -40,7 +40,7 @@ public class Main {
 //                .thenAccept(unbound -> system.terminate());
 
         Scanner scan = new Scanner(System.in);
-        scan.next();
+        scan.nextLine();
         System.out.println(1);
     }
 }
