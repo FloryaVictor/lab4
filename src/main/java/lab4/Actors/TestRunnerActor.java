@@ -12,13 +12,15 @@ import javax.script.ScriptEngineManager;
 
 public class TestRunnerActor extends AbstractActor {
 
-    String
+    private final static String JS_COMPILER = "nashorn";
+
+//    public static String runJS(String )
 
     @Override
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(RunTestMsg.class, req -> {
-                    ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
+                    ScriptEngine engine = new ScriptEngineManager().getEngineByName(JS_COMPILER);
                     engine.eval(req.getTestCode());
                     Invocable invocable = (Invocable) engine;
                     String res = invocable.invokeFunction(req.getTestFunctionName(), req.getTestData()).toString();

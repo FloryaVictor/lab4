@@ -1,2 +1,5 @@
-package lab4;public class TestData {
+package lab4;
+
+public class TestData {
+    
 }
