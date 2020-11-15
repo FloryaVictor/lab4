@@ -32,7 +32,7 @@ public class RouterActor extends AbstractActor {
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(RunTestMsg.class, test->{
-                    CompletionStage
+                    Completion
                 })
                 .match(GetTestResultsMsg.class, req -> {
 
