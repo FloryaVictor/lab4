@@ -36,8 +36,8 @@ public class MainHttp {
                             return completeOKWithFutureString(f);
                         })),
                 post(()->{
-                  extractRequestEntity(req -> {
-                      HttpRequestEntity
+                  extractRequestEntity(e -> {
+                      e.getDataBytes().toString();
                   })
                 })
         );
