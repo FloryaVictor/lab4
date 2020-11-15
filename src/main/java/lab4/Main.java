@@ -29,6 +29,7 @@ import scala.concurrent.Future;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 import static akka.http.javadsl.server.Directives.*;
@@ -57,23 +58,25 @@ public class Main {
     }
 
     public static Route createRoute(ActorSystem system, ActorRef routerActor) {
-        return get(()->
+        return concat(
+                get(()->
                         parameter("packageId",(id)-> {
                             Future<Object> f = ask(routerActor, new GetTestResultsMsg(id), timeout);
                             String s = (String)f.value().get().get();
                             return complete(s);
+                            CompletableFuture<String>
 //                            return completeOKWithFutureString(f);
-                        }));
-//                post(()->
-//                        extractDataBytes(data -> {
-//                            ArrayList<TestData> testData = TestData.fromJSON(data.toString());
-//                            for(TestData t : testData){
-//                                routerActor.tell(new RunTestMsg(t), ActorRef.noSender());
-//                            }
-//                            return complete("Tests are accepted for consideration");
-//                        })
-//                )
-//        );
+                        })),
+                post(()->
+                        extractDataBytes(data -> {
+                            ArrayList<TestData> testData = TestData.fromJSON(data.toString());
+                            for(TestData t : testData){
+                                routerActor.tell(new RunTestMsg(t), ActorRef.noSender());
+                            }
+                            return complete("Tests are accepted for consideration");
+                        })
+                )
+        );
 
     }
 }
