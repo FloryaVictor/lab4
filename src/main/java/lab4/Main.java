@@ -60,7 +60,7 @@ public class Main {
                         })),
                 post(()->
                         extractDataBytes(data -> {
-                            data.runFold("", )
+                            data.runFold("", (acc, ))
                             System.out.println(data.toString());
                             ArrayList<TestData> testData = TestData.fromJSON(data.toString());
                             for(TestData t : testData){
