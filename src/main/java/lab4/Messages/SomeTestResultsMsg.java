@@ -15,7 +15,8 @@ public class SomeTestResultsMsg {
         return testId;
     }
 
+    @SuppressWarnings("unchecked")
     public ArrayList<String> getTestResults(){
-        return testResults;
+        return (ArrayList<String>) testResults.clone();
     }
 }
