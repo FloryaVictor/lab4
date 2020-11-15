@@ -43,6 +43,7 @@ public class Main {
         ActorRef testRunnersPool = system.actorOf(new RoundRobinPool(5).props(Props.create(TestRunnerActor.class)));
         ActorRef storageActor = system.actorOf(Props.create(StorageActor.class));
         ActorRef routerActor = system.actorOf(Props.create(RouterActor.class));
+        routerActor
 //        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
 //                createRoute(system, routerActor).flow(system, materializer);
 //        final CompletionStage<ServerBinding> binding = http.bindAndHandle(
