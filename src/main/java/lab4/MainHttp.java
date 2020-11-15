@@ -22,7 +22,8 @@ public class MainHttp {
     }
 
     public Route createRoute(ActorSystem system) {
-        return route()
+        return route(get(),
+                post());
 
     }
 }
