@@ -21,42 +21,42 @@ import static akka.pattern.Patterns.ask;
 
 
 public class RouterActor extends AbstractActor {
-//    private final ActorRef testRunnersPool = getContext().actorOf(
-//            new RoundRobinPool(5)
-//                .props(Props.create(TestRunnerActor.class))
-//    );
-//
-//    private final ActorRef storageActor = getContext().actorOf(
-//            Props.create(StorageActor.class)
-//    );
+    private final ActorRef testRunnersPool = getContext().actorOf(
+            new RoundRobinPool(5)
+                .props(Props.create(TestRunnerActor.class))
+    );
+
+    private final ActorRef storageActor = getContext().actorOf(
+            Props.create(StorageActor.class)
+    );
     private final Timeout timeout = Timeout.create(Duration.ofSeconds(5));
 
     @Override
     public Receive createReceive() {
-        return ReceiveBuilder.create().build();
-//                .match(RunTestMsg.class, test->{
-//                    Future<Object> f = ask(testRunnersPool, test, timeout);
-//                    f.onComplete(new OnComplete<Object>() {
-//                        public void onComplete(Throwable t, Object result)
-//                        {
-//                            TestResultMsg msg = (TestResultMsg)result;
-//                            storageActor.tell(msg, ActorRef.noSender());
-//                        }
-//                    }, getContext().getDispatcher());
-//                })
-//                .match(GetTestResultsMsg.class, req -> {
-//                    Future<Object> f = ask(storageActor, req, timeout);
-//                    f.onComplete(new OnComplete<Object>() {
-//                        public void onComplete(Throwable t, Object result)
-//                        {
-//                            SomeTestResultsMsg msg = (SomeTestResultsMsg)result;
-//                            StringBuilder testResults = new StringBuilder();
-//                            for(String r : msg.getTestResults()){
-//                                testResults.append(r).append("\n");
-//                            }
-//                            getSender().tell(testResults.toString(), ActorRef.noSender());
-//                        }
-//                    }, getContext().getDispatcher());
-//                }).build();
+        return ReceiveBuilder.create()
+                .match(RunTestMsg.class, test->{
+                    Future<Object> f = ask(testRunnersPool, test, timeout);
+                    f.onComplete(new OnComplete<Object>() {
+                        public void onComplete(Throwable t, Object result)
+                        {
+                            TestResultMsg msg = (TestResultMsg)result;
+                            storageActor.tell(msg, ActorRef.noSender());
+                        }
+                    }, getContext().getDispatcher());
+                })
+                .match(GetTestResultsMsg.class, req -> {
+                    Future<Object> f = ask(storageActor, req, timeout);
+                    f.onComplete(new OnComplete<Object>() {
+                        public void onComplete(Throwable t, Object result)
+                        {
+                            SomeTestResultsMsg msg = (SomeTestResultsMsg)result;
+                            StringBuilder testResults = new StringBuilder();
+                            for(String r : msg.getTestResults()){
+                                testResults.append(r).append("\n");
+                            }
+                            getSender().tell(testResults.toString(), ActorRef.noSender());
+                        }
+                    }, getContext().getDispatcher());
+                }).build();
     }
 }
