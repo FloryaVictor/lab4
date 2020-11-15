@@ -51,17 +51,16 @@ public class TestData {
         String funcName = data.getString("functionName");
 
 
-        System.out.println(data.getJSONArray("tests"));
 
+        JSONArray tests = data.getJSONArray("tests");
+        for(int i = 0; i < tests.length(); i++){
 
-//        String[] tests = CDL.toString(data.getJSONArray("tests")).split(",");
-//        for(String test : tests){
-//            JSONObject testData = new JSONObject(test);
-//            parsedTests.add(new TestData(id, code, funcName,
-//                                        testData.getString("testName"),
-//                                        testData.getString("expectedValue"),
-//                                        testData.getString("params")));
-//        }
+            JSONObject testData = tests.getJSONObject(i);
+            parsedTests.add(new TestData(id, code, funcName,
+                                        testData.getString("testName"),
+                                        testData.getString("expectedValue"),
+                                        testData.getString("params")));
+        }
         return parsedTests;
     }
 }
