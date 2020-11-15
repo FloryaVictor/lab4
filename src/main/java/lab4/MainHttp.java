@@ -37,7 +37,8 @@ public class MainHttp {
                         })),
                 post(()->{
                   extractRequest(req -> {
-                      req.entity()
+                      TestData
+                      req.entity().toString();
                   })
                 })
         );
