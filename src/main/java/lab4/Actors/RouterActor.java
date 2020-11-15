@@ -38,7 +38,7 @@ public class RouterActor extends AbstractActor {
                         {
 
                         }
-                    });
+                    }, );
                 })
                 .match(GetTestResultsMsg.class, req -> {
 
