@@ -40,15 +40,6 @@ public class Main {
 //                .thenAccept(unbound -> system.terminate());
 //
 //
-        String s = "{\n" +
-                "\"packageId\":\"11\",\n" +
-                "\"jsScript\":\"var divideFn = function(a,b) { return a/b} \",\n" +
-                "\"functionName\":\"divideFn\",\n" +
-                "\"tests\": [\n" +
-                "]\n" +
-                "}";
-        ArrayList<TestData> l = TestData.fromJSON(s);
-        System.out.println(l.size());
-        
+
     }
 }

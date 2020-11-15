@@ -1,31 +1,15 @@
 package lab4.Messages;
 
+import lab4.TestData;
+
 public class RunTestMsg {
-    private final String testId;
-    private final String testCode;
-    private final String testData;
-    private final String testFunctionName;
+    private final TestData testData;
 
-    public RunTestMsg(String testId, String testCode, String testData, String testFunctionName){
-        this.testId = testId;
-        this.testCode = testCode;
-        this.testData = testData;
-        this.testFunctionName = testFunctionName;
+    public RunTestMsg(TestData testData){
+        this.testData = new TestData(testData);
     }
 
-    public String getTestId() {
-        return testId;
-    }
-
-    public String getTestCode() {
-        return testCode;
-    }
-
-    public String getTestData() {
+    public TestData getTestData() {
         return testData;
-    }
-
-    public String getTestFunctionName() {
-        return testFunctionName;
     }
 }

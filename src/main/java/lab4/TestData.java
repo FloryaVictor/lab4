@@ -19,6 +19,15 @@ public class TestData {
         this.params = params;
     }
 
+    public TestData(TestData t){
+        this.id = t.id;
+        this.code = t.code;
+        this.funcName = t.funcName;
+        this.testName = t.testName;
+        this.expectedResult = t.expectedResult;
+        this.params = t.params;
+    }
+
     public String getId() {
         return id;
     }
