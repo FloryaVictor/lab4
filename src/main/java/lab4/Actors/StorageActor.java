@@ -27,6 +27,7 @@ public class StorageActor extends AbstractActor {
                     //
                     ArrayList<String> a= new ArrayList<>();
                     a.add("lol");
+                    a.add("lol");
                     //
                     ArrayList<String> results = testResultsById.getOrDefault(id, a);
                     //
