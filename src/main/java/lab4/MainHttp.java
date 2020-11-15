@@ -11,6 +11,7 @@ import scala.concurrent.Future;
 
 
 import java.time.Duration;
+import java.util.ArrayList;
 
 
 import static akka.http.javadsl.server.Directives.*;
@@ -36,8 +37,9 @@ public class MainHttp {
                             return completeOKWithFutureString(f);
                         })),
                 post(()->{
-                  extractRequestEntity(e -> {
-                      e.getDataBytes().toString();
+                  extractDataBytes(data -> {
+                      ArrayList<TestData> testData = TestData.fromJSON(data.toString());
+                      
                   })
                 })
         );
