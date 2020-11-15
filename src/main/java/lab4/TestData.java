@@ -49,7 +49,7 @@ public class TestData {
         String id = data.getString("packageId");
         String code = data.getString("jsScript");
         String funcName = data.getString("functionName");
-        For()
+        For(JSONObject o: data.getJSONArray(""))
         return parsedTests;
     }
 }
