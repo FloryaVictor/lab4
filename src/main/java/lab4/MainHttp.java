@@ -36,7 +36,9 @@ public class MainHttp {
                             return completeOKWithFutureString(f);
                         })),
                 post(()->{
-                    
+                  extractRequest(req -> {
+                      
+                  })
                 })
         );
 
