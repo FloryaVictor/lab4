@@ -15,11 +15,12 @@ import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.CompletionStage;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 //        ActorSystem system = ActorSystem.create("routes");
 //        final Http http = Http.get(system);
 //        final ActorMaterializer materializer = ActorMaterializer.create(system);
@@ -39,6 +40,14 @@ public class Main {
 //                .thenAccept(unbound -> system.terminate());
 //
 //
-//    }
-        String s = "";
+        String s = "{\n" +
+                "\"packageId\":\"11\",\n" +
+                "\"jsScript\":\"var divideFn = function(a,b) { return a/b} \",\n" +
+                "\"functionName\":\"divideFn\",\n" +
+                "\"tests\": [\n" +
+                "]\n" +
+                "}";
+        ArrayList<TestData> l = TestData.fromJSON(s);
+        System.out.println(l.size());
+    }
 }
