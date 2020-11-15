@@ -33,7 +33,6 @@ public class Main {
                 materializer
         );
         System.out.println("Server online at http://localhost:8080/\nPress RETURN to stop...");
-        System.in.read();
         binding
                 .thenCompose(ServerBinding::unbind)
                 .thenAccept(unbound -> system.terminate());
