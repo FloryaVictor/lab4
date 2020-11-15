@@ -45,7 +45,7 @@ public class TestData {
 
     public static ArrayList<TestData> fromJSON(String json){
         ArrayList<TestData> parsedTests = new ArrayList<>();
-        JsonReader 
+        Json
 
         return parsedTests;
     }
