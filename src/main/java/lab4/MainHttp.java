@@ -22,11 +22,7 @@ public class MainHttp {
     }
 
     public Route createRoute(ActorSystem system) {
-        return get(
-                    parameter("packageId", (id) ->{
-                        return complete("");
-                    })
-        );
+        return route()
 
     }
 }
