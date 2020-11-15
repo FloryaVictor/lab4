@@ -61,10 +61,10 @@ public class Main {
                 post(()->
                         entity(Jackson.unmarshaller(Package.class), json -> {
                             System.out.println(json.toString());
-//                            ArrayList<TestData> testData = TestData.fromJSON(data.toString());
-//                            for(TestData t : testData){
-//                                routerActor.tell(new RunTestMsg(t), ActorRef.noSender());
-//                            }
+                            ArrayList<TestData> testData = TestData.fromJSON(json.toString());
+                            for(TestData t : testData){
+                                routerActor.tell(new RunTestMsg(t), ActorRef.noSender());
+                            }
                             return complete("Tests are accepted for consideration");
                         })
                 )
