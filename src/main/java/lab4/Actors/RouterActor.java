@@ -55,9 +55,6 @@ public class RouterActor extends AbstractActor {
                             sender().tell(msg, ActorRef.noSender());
                         }
                     }, getContext().getDispatcher());
-                })
-                .match(SomeTestResultsMsg.class, resp -> {
-
                 }).build();
     }
 }
