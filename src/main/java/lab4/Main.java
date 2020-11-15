@@ -62,8 +62,8 @@ public class Main {
                         parameter("packageId",(id)-> {
                             Future<String> f = ask(routerActor, new GetTestResultsMsg(id), timeout)
                                     .map(Object::toString, system.getDispatcher());
-                            return complete("123");
-//                            return completeOKWithFutureString(f);
+//                            return complete("123");
+                            return completeOKWithFutureString(f);
                         })),
                 post(()->
                         extractDataBytes(data -> {
