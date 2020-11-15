@@ -11,6 +11,6 @@ import java.util.concurrent.CompletionStage;
 public class MainHttp {
     public Route createRoute(ActorSystem system)
     {
-        p
+        path()
     }
 }
