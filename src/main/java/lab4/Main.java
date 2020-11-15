@@ -36,8 +36,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
-        ActorRef routerActor = system.actorOf(Props.create(RouterActor.class));
         final ActorMaterializer materializer = ActorMaterializer.create(system);
+        ActorRef routerActor = system.actorOf(Props.create(RouterActor.class));
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
                 createRoute(system, routerActor).flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
