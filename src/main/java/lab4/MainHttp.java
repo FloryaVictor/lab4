@@ -1,12 +1,13 @@
 package lab4;
 
-akka.http.javadsl.common.PartialApplication#bindParameter
-        akka.http.javadsl.server.Directives#anyOf (all overloads)
-        akka.http.javadsl.server.Directives#allOf (all overloads)
-        akka.http.javadsl.server.directives.FileUploadDirectives#storeUploadedFile
-        akka.http.javadsl.server.directives.FileUploadDirectives#storeUploadedFiles
-        akka.http.javadsl.server.directives.FileUploadDirectives#fileUploadAll
-        akka.http.javadsl.server.HttpApp
+import akka.actor.ActorSystem;
+import akka.http.javadsl.Http;
+import akka.http.javadsl.ServerBinding;
+import akka.http.javadsl.server.AllDirectives;
+import akka.http.javadsl.server.Route;
+import java.util.concurrent.CompletionStage;
+import akka.http.javadsl.server.directives.*;
+
 public class MainHttp {
     public MainHttp(ActorSystem system)
     {
