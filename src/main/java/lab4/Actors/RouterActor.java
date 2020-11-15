@@ -10,7 +10,7 @@ import lab4.Messages.*;
 public class RouterActor extends AbstractActor {
     private final ActorRef testActorsPool = getContext().actorOf(
             new RoundRobinPool(5)
-            
+                .props()
     );
 
     @Override
