@@ -55,7 +55,7 @@ public class TestData {
             parsedTests.add(new TestData(id, code, funcName,
                                         testData.getString("testName"),
                                         testData.getString("expectedValue"),
-                                        testData.getString("")));
+                                        testData.getString("params")));
         }
         return parsedTests;
     }
