@@ -23,8 +23,8 @@ public class Main {
     public static void main(String[] args) {
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
-        final ActorMaterializer materializer = ActorMaterializer.create(system);
         MainHttp instance = new MainHttp(system);
+        final ActorMaterializer materializer = ActorMaterializer.create(system);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
                 instance.createRoute().flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
