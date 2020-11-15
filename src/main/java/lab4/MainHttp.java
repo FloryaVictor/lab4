@@ -9,12 +9,13 @@ import static akka.http.javadsl.server.Directives.*;
 import java.util.concurrent.CompletionStage;
 
 public class MainHttp {
+    private final ActorSystem system;
     public MainHttp(ActorSystem system)
     {
-
+        this.system = system;
     }
 
     public Route createRoute(ActorSystem system) {
-        return
+
     }
 }
