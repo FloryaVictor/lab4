@@ -8,14 +8,12 @@ import akka.actor.ActorRef;
 
 import akka.actor.Props;
 import akka.japi.pf.ReceiveBuilder;
-import akka.pattern.PatternsCS;
 import akka.routing.RoundRobinPool;
 import akka.util.Timeout;
+import scala.concurrent.Future;
 
 import java.time.Duration;
-import java.util.concurrent.Future;
 
-import akka.dispatch.*;
 
 public class RouterActor extends AbstractActor {
     private final ActorRef testRunnersPool = getContext().actorOf(
@@ -33,7 +31,7 @@ public class RouterActor extends AbstractActor {
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(RunTestMsg.class, test->{
-                    Future<TestResultMsg> res = Patterns.ask(testRunnersPool, test, 1000);
+                    Future<Object> res = Patterns.ask(testRunnersPool, test, timeout);
 
                 })
                 .match(GetTestResultsMsg.class, req -> {
