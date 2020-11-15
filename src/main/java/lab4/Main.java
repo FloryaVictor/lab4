@@ -59,14 +59,12 @@ public class Main {
                             return completeOKWithFuture(f, Jackson.marshaller());
                         })),
                 post(()->
-                        extractDataBytes(data -> {
-                            data.runFold("", (acc, m)->
-                            {return acc+m;);
-                            System.out.println(data.toString());
-                            ArrayList<TestData> testData = TestData.fromJSON(data.toString());
-                            for(TestData t : testData){
-                                routerActor.tell(new RunTestMsg(t), ActorRef.noSender());
-                            }
+                        entity(Jackson.unmarshaller(Package.class), json -> {
+                            System.out.println(json.toString());
+//                            ArrayList<TestData> testData = TestData.fromJSON(data.toString());
+//                            for(TestData t : testData){
+//                                routerActor.tell(new RunTestMsg(t), ActorRef.noSender());
+//                            }
                             return complete("Tests are accepted for consideration");
                         })
                 )
