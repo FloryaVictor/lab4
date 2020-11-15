@@ -23,9 +23,10 @@ public class MainHttp {
 
     public Route createRoute(ActorSystem system) {
         return concat(
-                get("packageId", (id) ->{
-                    
-                }),
+                get(
+                        parameter("packageId", (id) ->{
+
+                })),
                 post()
         );
     }
