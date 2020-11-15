@@ -2,10 +2,13 @@ package lab4;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
+import akka.actor.Props;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.ServerBinding;
 
 import akka.http.javadsl.server.Route;
+import akka.routing.RouterActor;
+
 import static akka.http.javadsl.server.Directives.*;
 import java.util.concurrent.CompletionStage;
 
@@ -15,10 +18,12 @@ public class MainHttp {
     public MainHttp(ActorSystem system)
     {
         this.system = system;
-        this.routerActor = system.actorOf()
+        this.routerActor = system.actorOf(Props.create(RouterActor.class));
     }
 
-//    public Route createRoute(ActorSystem system) {
-//
-//    }
+    public Route createRoute(ActorSystem system) {
+        return concat(
+                
+        );
+    }
 }
