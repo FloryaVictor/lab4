@@ -41,6 +41,7 @@ public class RouterActor extends AbstractActor {
                     f.onComplete(new OnComplete<Object>() {
                         public void onComplete(Throwable t, Object result)
                         {
+                            TestResultMsg msg = (TestResultMsg)result;
                             
                         }
                     }, getContext().getDispatcher());
