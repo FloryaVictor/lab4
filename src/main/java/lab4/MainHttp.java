@@ -1,5 +1,6 @@
 package lab4;
 
+import akka.actor.Actor;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
@@ -29,7 +30,7 @@ public class MainHttp {
         this.routerActor = system.actorOf(Props.create(RouterActor.class));
     }
 
-    public Route createRoute() {
+    public Route createRoute(ActorSystem system) {
         return route(
                 get(()->
                         parameter("packageId",(id)-> {
