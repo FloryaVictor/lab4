@@ -6,13 +6,12 @@ import akka.actor.Props;
 import akka.dispatch.OnComplete;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.ServerBinding;
-
 import akka.http.javadsl.server.Route;
 import akka.routing.RouterActor;
 import akka.util.Timeout;
 import lab4.Messages.GetTestResultsMsg;
 import lab4.Messages.SomeTestResultsMsg;
-import scala.concurrent.Future;
+//import scala.concurrent.Future;
 
 import java.time.Duration;
 
@@ -36,7 +35,7 @@ public class MainHttp {
                 get(()->
                         parameter("packageId",(id)-> {
                             Future<Object> f = ask(routerActor, new GetTestResultsMsg(id), timeout);
-                            
+
                             return completeOKWithFutureString()
                         }))
 
