@@ -59,7 +59,7 @@ public class TestData {
             parsedTests.add(new TestData(id, code, funcName,
                                         testData.getString("testName"),
                                         testData.getString("expectedResult"),
-                                        testData.getString("params")));
+                                        testData.getJSONArray("params").toString()));
         }
         return parsedTests;
     }
