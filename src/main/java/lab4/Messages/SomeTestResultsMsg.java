@@ -16,6 +16,6 @@ public class SomeTestResultsMsg {
     }
 
     public ArrayList<String> getTestResults(){
-        return new ArrayList<>(testResults);
+        return testResults;
     }
 }
