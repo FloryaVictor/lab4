@@ -18,6 +18,6 @@ public class Main {
         a.add(3);
         ArrayList<Integer> b = (ArrayList<Integer>)a.clone();
         a.add(3);
-        System.out.println(b.size());
+        System.out.println(b.get(0));
     }
 }
