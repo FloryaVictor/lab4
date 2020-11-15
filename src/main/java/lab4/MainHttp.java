@@ -36,7 +36,6 @@ public class MainHttp {
                 get(()->
                         parameter("packageId",(id)-> {
                             Future<Object> f = ask(routerActor, new GetTestResultsMsg(id), timeout);
-                            SomeTestResultsMsg resp = (SomeTestResultsMsg)f.value().get().get();
                             
                         }))
 
