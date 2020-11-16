@@ -9,8 +9,9 @@ public class TestData {
     private final String funcName;
     private final String testName;
     private final String expectedResult;
-    private final String params;
-    public TestData(String id, String code, String funcName, String testName, String expectedResult, String params){
+    private final ArrayList<Integer> params;
+    public TestData(String id, String code, String funcName, String testName,
+                    String expectedResult, ArrayList<Integer> params){
         this.id = id;
         this.code = code;
         this.funcName = funcName;
@@ -48,7 +49,7 @@ public class TestData {
         return expectedResult;
     }
 
-    public String getParams() {
+    public ArrayList<Integer> getParams() {
         return params;
     }
 
@@ -58,7 +59,7 @@ public class TestData {
         String code = testPackage.code;
         String funcName = testPackage.funcName;
         for(OneTest t: testPackage.tests){
-            parsedTests.add(new TestData(id, code, funcName, t.testName, t.expectedResult, t.params.toString()));
+            parsedTests.add(new TestData(id, code, funcName, t.testName, t.expectedResult, t.params));
         }
         return parsedTests;
     }
