@@ -20,6 +20,8 @@ public class TestRunnerActor extends AbstractActor {
         engine.eval(testData.getCode());
         Invocable invocable = (Invocable) engine;
         String answ = invocable.invokeFunction(testData.getFuncName(), testData.getParams()).toString();
+        System.out.println(answ);
+
         if (!answ.equals(testData.getExpectedResult()))
         {
             return "Test " +
