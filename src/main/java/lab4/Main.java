@@ -61,7 +61,6 @@ public class Main {
                         })),
                 post(()->
                         entity(Jackson.unmarshaller(TestPackage.class), testPackage-> {
-
                             ArrayList<TestData> testData = TestData.fromPackage(testPackage);
                             for(TestData t : testData){
                                 routerActor.tell(new RunTestMsg(t), ActorRef.noSender());
