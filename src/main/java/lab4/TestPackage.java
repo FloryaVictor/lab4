@@ -6,12 +6,11 @@ import com.fasterxml.jackson.annotation.JsonRawValue;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public class TestPackage {
-    @JsonValue
-    public String json;
+    @JsonValue("id")
+    public String id;
 
 
     @JsonCreator
-    public TestPackage(@JsonProperty()){
-
+    public TestPackage(@JsonProperty(ID) String id){
     }
 }
