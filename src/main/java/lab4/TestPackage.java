@@ -13,16 +13,16 @@ public class TestPackage {
     private final String TESTS = "tests";
 
     @JsonProperty(ID)
-    public String id;
+    public final String id;
 
     @JsonProperty(CODE)
-    public String code;
+    public final String code;
 
     @JsonProperty(FUNCTION_NAME)
-    public String funcName;
+    public final String funcName;
 
     @JsonProperty(TESTS)
-    public ArrayList<OneTest> tests;
+    public final ArrayList<OneTest> tests;
 
     @JsonCreator
     public TestPackage(@JsonProperty(ID) String id, @JsonProperty(CODE) String code,
