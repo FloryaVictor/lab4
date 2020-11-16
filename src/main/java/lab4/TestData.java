@@ -52,26 +52,13 @@ public class TestData {
         return params;
     }
 
-    public static ArrayList<TestData> fromJSON(String json){
-        System.out.println(1);
-        System.out.println(json);
-        System.out.println(2);
+    public static ArrayList<TestData> fromPackage(TestPackage testPackage){
         ArrayList<TestData> parsedTests = new ArrayList<>();
-        JSONObject data = new JSONObject(json);
-        String id = data.getString("packageId");
-        String code = data.getString("jsScript");
-        String funcName = data.getString("functionName");
-
-
-
-        JSONArray tests = data.getJSONArray("tests");
-        for(int i = 0; i < tests.length(); i++){
-
-            JSONObject testData = tests.getJSONObject(i);
-            parsedTests.add(new TestData(id, code, funcName,
-                                        testData.getString("testName"),
-                                        testData.getString("expectedResult"),
-                                        testData.getJSONArray("params").toString()));
+        String id = testPackage.id;
+        String code = testPackage.code;
+        String funcName = testPackage.funcName;
+        for(OneTest t: testPackage.tests){
+            parsedTests.add(new TestData(id, code, funcName, t.))
         }
         return parsedTests;
     }
