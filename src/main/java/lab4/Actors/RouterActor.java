@@ -21,8 +21,10 @@ import lab4.Messages.*;
 
 
 public class RouterActor extends AbstractActor {
+    private final int NUM_OF_RUNNERS = 5;
+
     private final ActorRef testRunnersPool = getContext().actorOf(
-            new RoundRobinPool(5)
+            new RoundRobinPool(NUM_OF_RUNNERS)
                     .props(Props.create(TestRunnerActor.class)));
     private final ActorRef storageActor = getContext().actorOf(Props.create(StorageActor.class));
     private final Timeout timeout = Timeout.create(Duration.ofSeconds(5));
