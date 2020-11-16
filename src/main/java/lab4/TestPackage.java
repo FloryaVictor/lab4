@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRawValue;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 
 public class TestPackage {
     private final String ID = "id";
@@ -11,11 +12,24 @@ public class TestPackage {
     private final String FUNCTION_NAME = "funcName";
     private final String TESTS = "tests";
 
-    @JsonValue("id")
+    @JsonProperty(ID)
     public String id;
 
+    @JsonProperty(CODE)
+    public String code;
+
+    @JsonProperty(FUNCTION_NAME)
+    public String funcName;
+
+    @JsonProperty(TESTS)
+    public ArrayList<OneTest> tests;
 
     @JsonCreator
-    public TestPackage(@JsonProperty(ID) String id){
+    public TestPackage(@JsonProperty(ID) String id, @JsonProperty(CODE) String code,
+                       @JsonProperty(FUNCTION_NAME) String funcName, @JsonProperty(TESTS) ArrayList<OneTest> tests){
+        this.id = id;
+        this.code = code;
+        this.funcName = funcName;
+        this.tests = tests;
     }
 }
