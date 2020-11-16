@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class OneTest {
     private final String TEST_NAME = "testName";
     private final String EXPECTED_RESULT = "expectedResult";
-    
+    private final String PARAMS = "params";
 
     @JsonProperty
     public final String testName;
