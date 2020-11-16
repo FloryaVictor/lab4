@@ -62,8 +62,6 @@ public class Main {
                 post(()->
                         entity(Jackson.unmarshaller(TestPackage.class), testPackage-> {
                             ArrayList<Integer> a = new ArrayList<>();
-                            a.add(1);
-                            a.add(2);
                             System.out.println(a.toString());
 //                            ArrayList<TestData> testData = TestData.fromJSON(json.toString());
 //                            for(TestData t : testData){
