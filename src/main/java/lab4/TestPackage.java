@@ -7,9 +7,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 
 public class TestPackage {
-    private final String ID = "id";
-    private final String CODE = "code";
-    private final String FUNCTION_NAME = "funcName";
+    private final String ID = "packageId";
+    private final String CODE = "jsScript";
+    private final String FUNCTION_NAME = "func";
     private final String TESTS = "tests";
 
     @JsonProperty(ID)
