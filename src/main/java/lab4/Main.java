@@ -61,12 +61,11 @@ public class Main {
                         })),
                 post(()->
                         entity(Jackson.unmarshaller(TestPackage.class), testPackage-> {
-                            ArrayList<Integer> a = new ArrayList<>();
-                            System.out.println(a.toString());
-//                            ArrayList<TestData> testData = TestData.fromJSON(json.toString());
-//                            for(TestData t : testData){
-//                                routerActor.tell(new RunTestMsg(t), ActorRef.noSender());
-//                            }
+
+                            ArrayList<TestData> testData = TestData.fromPackage(testPackage);
+                            for(TestData t : testData){
+                                routerActor.tell(new RunTestMsg(t), ActorRef.noSender());
+                            }
                             return complete("Tests are accepted for consideration");
                         })
                 )
