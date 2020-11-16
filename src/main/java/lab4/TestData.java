@@ -51,28 +51,5 @@ public class TestData {
     public String getParams() {
         return params;
     }
-
-    public static ArrayList<TestData> fromJSON(String json){
-        System.out.println(1);
-        System.out.println(json);
-        System.out.println(2);
-        ArrayList<TestData> parsedTests = new ArrayList<>();
-        JSONObject data = new JSONObject(json);
-        String id = data.getString("packageId");
-        String code = data.getString("jsScript");
-        String funcName = data.getString("functionName");
-
-
-
-        JSONArray tests = data.getJSONArray("tests");
-        for(int i = 0; i < tests.length(); i++){
-
-            JSONObject testData = tests.getJSONObject(i);
-            parsedTests.add(new TestData(id, code, funcName,
-                                        testData.getString("testName"),
-                                        testData.getString("expectedResult"),
-                                        testData.getJSONArray("params").toString()));
-        }
-        return parsedTests;
-    }
+    
 }
