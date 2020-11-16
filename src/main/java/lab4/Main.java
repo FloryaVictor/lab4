@@ -60,7 +60,7 @@ public class Main {
                             return completeOKWithFuture(f, Jackson.marshaller());
                         })),
                 post(()->
-                        extractRequestEntity((e) -> {
+                        extractEntity((e) -> {
                             System.out.println(e.getDataBytes());
 
 //                            ArrayList<TestData> testData = TestData.fromJSON(json.toString());

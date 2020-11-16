@@ -1,7 +1,8 @@
 package lab4;
 
-import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonRawValue;
 
 public class TestPackage {
-    public 
+    @JsonRawValue
+    public String json;
 }
