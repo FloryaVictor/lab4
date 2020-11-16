@@ -52,7 +52,7 @@ public class Main {
     }
 
     public static Route createRoute(ActorSystem system, ActorRef routerActor) {
-        return concat(
+        return route(
                 get(()->
                         parameter("packageId",(id)-> {
                             Future<Object> f = ask(routerActor, new GetTestResultsMsg(id), timeout);
