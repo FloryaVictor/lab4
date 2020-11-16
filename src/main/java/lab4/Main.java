@@ -60,7 +60,8 @@ public class Main {
                         })),
                 post(()->
                         extractEntity((e) -> {
-                            System.out.println(e.getDataBytes().toString());
+                            System.out.println(e);
+
 //                            ArrayList<TestData> testData = TestData.fromJSON(json.toString());
 //                            for(TestData t : testData){
 //                                routerActor.tell(new RunTestMsg(t), ActorRef.noSender());
