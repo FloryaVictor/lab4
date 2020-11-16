@@ -60,9 +60,16 @@ public class Main {
                             return completeOKWithFuture(f, Jackson.marshaller());
                         })),
                 post(()->
-                        entity(Jackson.unmarshaller(TestPackage.class), json-> {
-
-
+                        entity(Jackson.unmarshaller(TestPackage.class), testPackage-> {
+                            System.out.println(testPackage.id);
+                            System.out.println(testPackage.code);
+                            System.out.println(testPackage.funcName);
+                            System.out.println(testPackage.tests.get(0).expectedResult);
+                            System.out.println(testPackage.tests.get(0).testName);
+                            System.out.println(testPackage.tests.get(0).params);
+                            System.out.println(testPackage.tests.get(1).expectedResult);
+                            System.out.println(testPackage.tests.get(1).testName);
+                            System.out.println(testPackage.tests.get(1).params);
 //                            ArrayList<TestData> testData = TestData.fromJSON(json.toString());
 //                            for(TestData t : testData){
 //                                routerActor.tell(new RunTestMsg(t), ActorRef.noSender());
