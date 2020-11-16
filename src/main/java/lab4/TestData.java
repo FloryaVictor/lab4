@@ -58,7 +58,14 @@ public class TestData {
         String code = testPackage.code;
         String funcName = testPackage.funcName;
         for(OneTest t: testPackage.tests){
-            parsedTests.add(new TestData(id, code, funcName, t.))
+            StringBuilder sb = new StringBuilder();
+            sb.append("[");
+            for(Integer i: t.params){
+                sb.append(i).append(",");
+            }
+//            if (sb.toString().length() > 1)
+//                sb.delete(sb.length())
+//            parsedTests.add(new TestData(id, code, funcName, t.testName, t.expectedResult, ));
         }
         return parsedTests;
     }
