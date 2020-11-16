@@ -19,7 +19,7 @@ public class TestRunnerActor extends AbstractActor {
         ScriptEngine engine = new ScriptEngineManager().getEngineByName(JS_COMPILER);
         engine.eval(testData.getCode());
         Invocable invocable = (Invocable) engine;
-        String answ = invocable.invokeFunction(testData.getFuncName(), testData.getParams()).toString();
+        String answ = invocable.invokeFunction(testData.getFuncName(), testData.getParams().toArray()).toString();
         if (!answ.equals(testData.getExpectedResult()))
         {
             return "Test " +
