@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class TestPackage {
     private final String ID = "packageId";
     private final String CODE = "jsScript";
-    private final String FUNCTION_NAME = "func";
+    private final String FUNCTION_NAME = "functionName";
     private final String TESTS = "tests";
 
     @JsonProperty(ID)
